@@ -6,12 +6,12 @@
 class palet
 {
 public:
-    palet(float x,float y);
+    palet(float positionX);
     void Display();
 
 private:
     float posx_;
-    float posy_;
+
 };
 
 #endif // PALET_H

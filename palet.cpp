@@ -1,50 +1,49 @@
 #include "palet.h"
 
-palet::palet(float x,float y)
+palet::palet(float positionX)
 {
-    posx_=x;
-    posy_=y;
+    posx_=positionX;
 }
 
 
 void palet::Display(){
     glPushMatrix();
     glTranslatef(posx_,0,0);
-    glTranslatef(0,posy_,0);
+    glTranslatef(0,-28.5,0);//Set position Verticale
 
     glBegin(GL_QUADS);
 
-    glVertex3f(15.0f, 3.0f, -5.0f);
-    glVertex3f( 1.0f, 3.0f, -5.0f);
-    glVertex3f( 1.0f, 1.0f, -5.0f);
-    glVertex3f(15.0f, 1.0f, -5.0f);
+    glVertex3f(7.0f, 1.0f, 2.5f);
+    glVertex3f(-7.0f, 1.0f, 2.5f);
+    glVertex3f(-7.0f, -1.0f, 2.5f);
+    glVertex3f(7.0f, -1.0f, 2.5f);
 
 
-    glVertex3f(15.0f, 3.0f, -7.0f);
-    glVertex3f(15.0f, 1.0f, -7.0f);
-    glVertex3f( 1.0f, 1.0f, -7.0f);
-    glVertex3f( 1.0f, 3.0f, -7.0f);
+    glVertex3f(7.0f, 1.0f, -2.5f);
+    glVertex3f(7.0f, -1.0f, -2.5f);
+    glVertex3f(-7.0f, -1.0f, -2.5f);
+    glVertex3f(-7.0f, 1.0f, -2.5f);
 
-    glVertex3f(15.0f, 1.0f, -7.0f);
-    glVertex3f(15.0f, 1.0f, -5.0f);
-    glVertex3f( 1.0f, 1.0f, -5.0f);
-    glVertex3f( 1.0f, 1.0f, -7.0f);
+    glVertex3f(7.0f, -1.0f, -2.5f);
+    glVertex3f(7.0f, -1.0f, 2.5f);
+    glVertex3f(-7.0f,-1.0f, 2.5f);
+    glVertex3f(-7.0f, -1.0f, -2.5f);
 
-    glVertex3f(15.0f, 3.0f, -7.0f);
-    glVertex3f( 1.0f, 3.0f, -7.0f);
-    glVertex3f( 1.0f, 3.0f, -5.0f);
-    glVertex3f(15.0f, 3.0f, -5.0f);
+    glVertex3f(7.0f, 1.0f, -2.5f);
+    glVertex3f(-7.0f, 1.0f, -2.5f);
+    glVertex3f(-7.0f, 1.0f, 2.5f);
+    glVertex3f(7.0f, 1.0f, 2.5f);
 
-    glVertex3f( 1.0f, 3.0f, -7.0f);
-    glVertex3f( 1.0f, 1.0f, -7.0f);
-    glVertex3f( 1.0f, 1.0f, -5.0f);
-    glVertex3f( 1.0f, 3.0f, - 5.0f);
+    glVertex3f(-7.0f, 1.0f, -2.5f);
+    glVertex3f(-7.0f, -1.0f, -2.5f);
+    glVertex3f(-7.0f, -1.0f, 2.5f);
+    glVertex3f(-7.0f, 1.0f, 2.5f);
 
 
-    glVertex3f(15.0f, 3.0f, -7.0f);
-    glVertex3f(15.0f, 3.0f, -5.0f);
-    glVertex3f(15.0f, 1.0f, -5.0f);
-    glVertex3f(15.0f, 1.0f, -7.0f);
+    glVertex3f(7.0f, 1.0f, -2.5f);
+    glVertex3f(7.0f, 1.0f, 2.5f);
+    glVertex3f(7.0f, -1.0f, 2.5f);
+    glVertex3f(7.0f, -1.0f, -2.5f);
     glEnd();
 
     glPopMatrix();

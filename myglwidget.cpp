@@ -28,8 +28,8 @@ void MyGLWidget::initializeGL()
     // Activation du zbuffer
     glEnable(GL_DEPTH_TEST);
 
-    BriqueT=new brique(-49.5,24);
-    Palet=new palet(-7,-30);
+    BriqueT=new brique(-45,27);
+    Palet=new palet(0);
 }
 
 
@@ -62,14 +62,7 @@ void MyGLWidget::paintGL()
     glLoadIdentity();
     gluLookAt(0.0f, 0.0f, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
-    // ----------------------------------------------------------------
-    // Affichage du cube
-    // ...
-    // ----------------------------------------------------------------
     BriqueT->Display();
     Palet->Display();
-    // ----------------------------------------------------------------
-    // Affichage de la quadrique
-    // ...
-    // ----------------------------------------------------------------
+
 }
