@@ -1,5 +1,5 @@
 #include "brique.h"
-
+// Constructeur
 Brique::Brique(float x,float y)
 {
     posx_=x;

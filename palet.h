@@ -6,6 +6,7 @@
 class Palet
 {
 public:
+    // Constructeur
     Palet(float positionX);
     void Display();
     void UpdatePos(float position);

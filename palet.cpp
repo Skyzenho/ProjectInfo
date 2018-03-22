@@ -1,5 +1,5 @@
 #include "palet.h"
-
+// Constructeur
 Palet::Palet(float positionX)
 {
     posx_=positionX;
