@@ -28,12 +28,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     brique.cpp \
     myglwidget.cpp \
-    palet.cpp
+    palet.cpp \
+    boule.cpp
 
 HEADERS  += mainwindow.h \
     brique.h \
     myglwidget.h \
-    palet.h
+    palet.h \
+    boule.h
 
 FORMS    += mainwindow.ui
 

@@ -3,12 +3,12 @@
 
 #include <GL/glu.h>
 
-class palet
+class Palet
 {
 public:
-    palet(float positionX);
+    Palet(float positionX);
     void Display();
-
+    void UpdatePos(float position);
 private:
     float posx_;
 

@@ -21,6 +21,7 @@ protected:
     void keyPressEvent(QKeyEvent * event);
 private:
     Ui::MainWindow *ui;
+    float Pospalet_;
 };
 
 #endif // MAINWINDOW_H

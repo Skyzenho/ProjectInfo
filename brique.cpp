@@ -1,12 +1,14 @@
 #include "brique.h"
 
-brique::brique(float x,float y)
+Brique::Brique(float x,float y)
 {
     posx_=x;
     posy_=y;
+
 }
 
-void brique::Display(){
+
+void Brique::Display(){
     glPushMatrix();
     glTranslatef(posx_,0,0);
     glTranslatef(0,posy_,0);

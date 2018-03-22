@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    Pospalet_=0.0f;
 }
 
 MainWindow::~MainWindow()
@@ -26,10 +27,18 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 
         case Qt::Key_Left:
         {
+            if (Pospalet_>-43.0f){//Il ne peut pas travesser le mur
+                Pospalet_-=1.0f;
+                ui->widget->MovePalet(Pospalet_);
+            }
             break;
         }
         case Qt::Key_Right:
         {
+            if (Pospalet_<43.0f){//Il ne peut pas travesser le mur
+              Pospalet_+=1.0f;
+              ui->widget->MovePalet(Pospalet_);
+            }
             break;
         }
         // Cas par defaut

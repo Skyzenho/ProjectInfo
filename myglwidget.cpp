@@ -27,9 +27,16 @@ void MyGLWidget::initializeGL()
 
     // Activation du zbuffer
     glEnable(GL_DEPTH_TEST);
-
-    BriqueT=new brique(-45,27);
-    Palet=new palet(0);
+    // Ajouter les briques
+    for (int i=1;i<=10;i++){
+        for(int j=1;j<=5;j++){
+            v_Brique.push_back(new Brique(-55+10*i,32-5*j));
+        }
+    }
+    // Ajouter le palet
+    Palet_=new Palet(0);
+    // Ajouter le boule
+    Boule_=new Boule(0,0);
 }
 
 
@@ -62,7 +69,14 @@ void MyGLWidget::paintGL()
     glLoadIdentity();
     gluLookAt(0.0f, 0.0f, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
-    BriqueT->Display();
-    Palet->Display();
 
+    Palet_->Display();
+    Boule_->Display();
+    // Affiche les briques
+    for(Brique * it : v_Brique) it->Display();
+
+}
+
+void MyGLWidget::MovePalet(float Pos){
+    Palet_->UpdatePos(Pos);
 }

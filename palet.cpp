@@ -1,12 +1,12 @@
 #include "palet.h"
 
-palet::palet(float positionX)
+Palet::Palet(float positionX)
 {
     posx_=positionX;
 }
 
 
-void palet::Display(){
+void Palet::Display(){
     glPushMatrix();
     glTranslatef(posx_,0,0);
     glTranslatef(0,-28.5,0);//Set position Verticale
@@ -47,4 +47,8 @@ void palet::Display(){
     glEnd();
 
     glPopMatrix();
+}
+
+void Palet::UpdatePos(float position){
+    posx_=position;
 }

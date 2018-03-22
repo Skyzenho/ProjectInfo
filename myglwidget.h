@@ -7,6 +7,7 @@
 #include <QKeyEvent>
 #include "brique.h"
 #include "palet.h"
+#include "boule.h"
 
 // Classe dediee a l'affichage d'une scene OpenGL
 class MyGLWidget : public QGLWidget
@@ -17,6 +18,9 @@ public:
 
     // Constructeur
     MyGLWidget(QWidget * parent = nullptr);
+
+
+    void MovePalet(float Pos);
 
 protected:
 
@@ -30,8 +34,11 @@ protected:
     void paintGL();
 
 private:
-    brique *BriqueT;
-    palet *Palet;
+
+    Palet *Palet_;
+    Boule *Boule_;
+    // Liste des planetes
+    std::vector<Brique *> v_Brique;
 };
 
 #endif // MYGLWIDGET_H

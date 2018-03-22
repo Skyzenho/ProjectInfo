@@ -3,14 +3,17 @@
 
 #include <GL/glu.h>
 
-class brique
+class Brique
 {
 public:
-    brique(float x,float y);
+    // Constructeur
+    Brique(float x,float y);
 
+    // Affichage du brique
     void Display();
 
 private:
+
     float posx_;
     float posy_;
     bool disp_;
