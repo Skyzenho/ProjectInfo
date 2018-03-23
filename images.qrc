@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>MurFond.jpg</file>
+        <file>Briques.jpg</file>
+        <file>Palet.jpg</file>
+        <file>Boule.jpg</file>
+    </qresource>
+</RCC>

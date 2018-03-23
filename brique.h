@@ -2,6 +2,8 @@
 #define BRIQUE_H
 
 #include <GL/glu.h>
+#include <QImage>
+#include <QGLWidget>
 
 class Brique
 {
@@ -16,7 +18,8 @@ private:
 
     float posx_;
     float posy_;
-    bool disp_;
+    bool disp_; // Etat du brique. casse ou pas
+    GLuint Texture_;// ID Texture
 };
 
 #endif // BRIQUE_H

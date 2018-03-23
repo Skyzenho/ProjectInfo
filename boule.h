@@ -2,6 +2,8 @@
 #define BOULE_H
 
 #include <GL/glu.h>
+#include <QImage>
+#include <QGLWidget>
 
 class Boule
 {
@@ -21,6 +23,7 @@ private:
 
     float posx_;
     float posy_;
+    GLuint Texture_;// ID Texture
 };
 
 #endif // BOULE_H
