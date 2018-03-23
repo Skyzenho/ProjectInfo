@@ -18,10 +18,31 @@ void Mur::Display(){
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D,Texture_);
     glBegin(GL_QUADS);
-    glTexCoord2f(0, 0);glVertex3f(-BordH, -BordV, -20.0f);
-    glTexCoord2f(1, 0);glVertex3f(BordH, -BordV, -20.0f);
-    glTexCoord2f(1, 1);glVertex3f(BordH,BordV, -20.0f);
-    glTexCoord2f(0, 1);glVertex3f(-BordH,BordV, -20.0f);
+    glTexCoord2f(0, 0);glVertex3f(-BordH, -BordV, -30.0f);
+    glTexCoord2f(1, 0);glVertex3f(BordH, -BordV, -30.0f);
+    glTexCoord2f(1, 1);glVertex3f(BordH,BordV, -30.0f);
+    glTexCoord2f(0, 1);glVertex3f(-BordH,BordV, -30.0f);
     glEnd();
     glDisable(GL_TEXTURE_2D);
+}
+
+bool Mur::VerifieGauche(float x){
+    if (x<=(-BordH+1))return TRUE;
+    else return FALSE;
+}
+
+
+bool Mur::VerifieDroite(float x){
+    if (x>=(BordH-1))return TRUE;
+    else return FALSE;
+}
+
+bool Mur::VerifieHaut(float y){
+    if (y>=(BordV-1))return TRUE;
+    else return FALSE;
+}
+
+bool Mur::VerifieBas(float y){
+    if (y<=(-BordV+1))return TRUE;
+    else return FALSE;
 }

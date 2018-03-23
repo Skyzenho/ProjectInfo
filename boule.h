@@ -5,6 +5,7 @@
 #include <QImage>
 #include <QGLWidget>
 
+
 class Boule
 {
 public:
@@ -15,7 +16,9 @@ public:
     virtual ~Boule();
 
 
-    void Display();
+    void Display(float timerpass);
+    float GetX();
+    float GetY();
 
 private:
     // Corps de l'objet
@@ -23,6 +26,7 @@ private:
 
     float posx_;
     float posy_;
+
     GLuint Texture_;// ID Texture
 };
 

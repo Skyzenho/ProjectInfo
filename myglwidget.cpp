@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QDebug>
+
 // Declarations des constantes
 const unsigned int WIN_WIDTH  = 1600;
 const unsigned int WIN_HEIGHT = 900;
@@ -16,6 +17,15 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
     // Reglage de la taille/position
     //setFixedSize(WIN_WIDTH, WIN_HEIGHT);
     move(QApplication::desktop()->screen()->rect().center() - rect().center());
+
+    connect(&m_AnimationTimer,  &QTimer::timeout, [&] {
+            m_TimeElapsed += 1.0f;
+            updateGL();
+        });
+
+        m_AnimationTimer.setInterval(100);
+        m_AnimationTimer.start();
+
 }
 
 
@@ -39,6 +49,7 @@ void MyGLWidget::initializeGL()
     Boule_=new Boule(0,0);
 
     Mur_=new Mur(50,30);
+
 }
 
 
@@ -73,8 +84,9 @@ void MyGLWidget::paintGL()
 
 
     Palet_->Display();
-    Boule_->Display();
+    Boule_->Display(m_TimeElapsed);
     Mur_->Display();
+
     // Affiche les briques
     for(Brique * it : v_Brique) it->Display();
 

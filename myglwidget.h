@@ -3,8 +3,8 @@
 
 #include <QGLWidget>
 #include <QMouseEvent>
-#include <QWheelEvent>
 #include <QKeyEvent>
+#include <QTimer>
 #include "brique.h"
 #include "palet.h"
 #include "boule.h"
@@ -35,11 +35,14 @@ protected:
     void paintGL();
 
 private:
-
+    // Timer d'animation
+    float m_TimeElapsed { 0.0f };
+    QTimer m_AnimationTimer;
+    //Les objets du jeux
     Palet *Palet_;
     Boule *Boule_;
     Mur *Mur_;
-    // Liste des planetes
+    // Liste des Briques
     std::vector<Brique *> v_Brique;
 };
 

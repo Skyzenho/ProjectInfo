@@ -26,7 +26,7 @@ Boule::~Boule()
 }
 
 
-void Boule::Display(){
+void Boule::Display(float timerpass){
     glPushMatrix();
 
     //Positionne le boule
@@ -39,4 +39,14 @@ void Boule::Display(){
     glDisable(GL_TEXTURE_2D);
 
     glPopMatrix();
+}
+
+
+float Boule::GetX(){
+    return posx_;
+}
+
+
+float Boule::GetY(){
+    return posy_;
 }
