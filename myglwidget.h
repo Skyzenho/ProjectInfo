@@ -8,6 +8,7 @@
 #include "brique.h"
 #include "palet.h"
 #include "boule.h"
+#include "mur.h"
 
 // Classe dediee a l'affichage d'une scene OpenGL
 class MyGLWidget : public QGLWidget
@@ -37,6 +38,7 @@ private:
 
     Palet *Palet_;
     Boule *Boule_;
+    Mur *Mur_;
     // Liste des planetes
     std::vector<Brique *> v_Brique;
 };

@@ -37,6 +37,8 @@ void MyGLWidget::initializeGL()
     Palet_=new Palet(0);
     // Ajouter le boule
     Boule_=new Boule(0,0);
+
+    Mur_=new Mur(50,30);
 }
 
 
@@ -72,6 +74,7 @@ void MyGLWidget::paintGL()
 
     Palet_->Display();
     Boule_->Display();
+    Mur_->Display();
     // Affiche les briques
     for(Brique * it : v_Brique) it->Display();
 
