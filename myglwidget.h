@@ -1,6 +1,6 @@
 #ifndef MYGLWIDGET_H
 #define MYGLWIDGET_H
-
+#include <GL/glu.h>
 #include <QGLWidget>
 #include <QMouseEvent>
 #include <QKeyEvent>
@@ -9,6 +9,10 @@
 #include "palet.h"
 #include "boule.h"
 #include "mur.h"
+#include "jeu.h"
+#include <QApplication>
+#include <QDesktopWidget>
+
 
 // Classe dediee a l'affichage d'une scene OpenGL
 class MyGLWidget : public QGLWidget
@@ -20,8 +24,7 @@ public:
     // Constructeur
     MyGLWidget(QWidget * parent = nullptr);
 
-
-    void MovePalet(float Pos);
+    void SetJeu(Jeu* JeuPtr);
 
 protected:
 
@@ -38,12 +41,8 @@ private:
     // Timer d'animation
     float m_TimeElapsed { 0.0f };
     QTimer m_AnimationTimer;
-    //Les objets du jeux
-    Palet *Palet_;
-    Boule *Boule_;
-    Mur *Mur_;
-    // Liste des Briques
-    std::vector<Brique *> v_Brique;
+
+    Jeu *Jeu_;
 };
 
 #endif // MYGLWIDGET_H

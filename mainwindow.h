@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "jeu.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,6 +23,7 @@ protected:
 private:
     Ui::MainWindow *ui;
     float Pospalet_;
+    Jeu Jeu_;
 };
 
 #endif // MAINWINDOW_H
