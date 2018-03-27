@@ -4,6 +4,7 @@
 #include <GL/glu.h>
 #include <QImage>
 #include <QGLWidget>
+#include <math.h>
 
 class Mur
 {
@@ -13,10 +14,8 @@ public:
 
     // Affichage du brique
     void Display();
-    bool VerifieGauche(float x);
-    bool VerifieDroite(float x);
-    bool VerifieHaut(float y);
     bool VerifieBas(float y);
+    float InteractMur(float x,float y,float angle);
 
 private:
     float BordH;

@@ -30,14 +30,16 @@ SOURCES += main.cpp\
     myglwidget.cpp \
     palet.cpp \
     boule.cpp \
-    mur.cpp
+    mur.cpp \
+    jeu.cpp
 
 HEADERS  += mainwindow.h \
     brique.h \
     myglwidget.h \
     palet.h \
     boule.h \
-    mur.h
+    mur.h \
+    jeu.h
 
 FORMS    += mainwindow.ui
 

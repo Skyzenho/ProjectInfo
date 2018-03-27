@@ -7,6 +7,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     Pospalet_=0.0f;
+    ui->widget->SetJeu(&Jeu_);
+    connect(&m_AnimationTimer,  &QTimer::timeout, [&] {
+            m_TimeElapsed += 0.1f;
+            ui->widget->updateGL();
+        });
+    connect(&m_AnimationTimer,&QTimer::timeout,[&] {
+        Jeu_.Joue();
+    });
+
+    m_AnimationTimer.setInterval(50);
+    m_AnimationTimer.start();
 }
 
 MainWindow::~MainWindow()
@@ -25,11 +36,21 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
             break;
         }
 
+        case Qt::Key_P:
+        {
+        // Activation / Désactivation de l'animation
+               if(m_AnimationTimer.isActive())
+                  m_AnimationTimer.stop();
+               else
+                  m_AnimationTimer.start();
+               break;
+        }
+
         case Qt::Key_Left:
         {
             if (Pospalet_>-43.0f){//Il ne peut pas travesser le mur
                 Pospalet_-=1.0f;
-                ui->widget->MovePalet(Pospalet_);
+                Jeu_.MovePalet(Pospalet_);
             }
             break;
         }
@@ -37,7 +58,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
         {
             if (Pospalet_<43.0f){//Il ne peut pas travesser le mur
               Pospalet_+=1.0f;
-              ui->widget->MovePalet(Pospalet_);
+              Jeu_.MovePalet(Pospalet_);
             }
             break;
         }

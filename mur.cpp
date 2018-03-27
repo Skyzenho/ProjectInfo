@@ -26,23 +26,15 @@ void Mur::Display(){
     glDisable(GL_TEXTURE_2D);
 }
 
-bool Mur::VerifieGauche(float x){
-    if (x<=(-BordH+1))return TRUE;
-    else return FALSE;
-}
-
-
-bool Mur::VerifieDroite(float x){
-    if (x>=(BordH-1))return TRUE;
-    else return FALSE;
-}
-
-bool Mur::VerifieHaut(float y){
-    if (y>=(BordV-1))return TRUE;
-    else return FALSE;
-}
-
 bool Mur::VerifieBas(float y){
     if (y<=(-BordV+1))return TRUE;
     else return FALSE;
+}
+
+float Mur::InteractMur(float x,float y,float angle){
+
+    if(x>=(BordH-1)) return (180-angle*180/3.1415)*(3.1415/180);//VerifieDroite
+    else if(x<=(-BordH+1)) return (180-angle*180/3.1415)*(3.1415/180);//VerifieGauche
+    else if(y>=(BordV-1)) return -angle;//VerifieHaut
+    else  return angle;
 }

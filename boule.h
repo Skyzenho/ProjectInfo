@@ -4,21 +4,25 @@
 #include <GL/glu.h>
 #include <QImage>
 #include <QGLWidget>
-
+#include <math.h>
+#include <QDebug>
 
 class Boule
 {
 public:
     // Constructeur
-    Boule(float x,float y);
+    Boule(float x,float y,float angle);
 
     // Destructeur
     virtual ~Boule();
 
 
-    void Display(float timerpass);
+    void Display();
     float GetX();
     float GetY();
+    float GetAngle();
+    void SetAngle(float angle);
+    void Update();
 
 private:
     // Corps de l'objet
@@ -26,8 +30,10 @@ private:
 
     float posx_;
     float posy_;
+    float angle_;
 
     GLuint Texture_;// ID Texture
+
 };
 
 #endif // BOULE_H

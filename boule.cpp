@@ -1,9 +1,10 @@
 #include "boule.h"
 // Constructeur
-Boule::Boule(float x,float y)
+Boule::Boule(float x,float y,float angle)
 {
     posx_=x;
     posy_=y;
+    angle_=angle*(3.1415/180);
 
     // Creation de la quadrique
     m_Body = gluNewQuadric();
@@ -26,7 +27,7 @@ Boule::~Boule()
 }
 
 
-void Boule::Display(float timerpass){
+void Boule::Display(){
     glPushMatrix();
 
     //Positionne le boule
@@ -42,11 +43,15 @@ void Boule::Display(float timerpass){
 }
 
 
-float Boule::GetX(){
-    return posx_;
-}
+float Boule::GetX(){return posx_;}
 
+float Boule::GetY(){return posy_;}
 
-float Boule::GetY(){
-    return posy_;
+float Boule::GetAngle(){return angle_;}
+
+void Boule::SetAngle(float angle){angle_=angle;}
+
+void Boule::Update(){
+    posx_=posx_+cos(angle_);
+    posy_=posy_+sin(angle_);
 }
