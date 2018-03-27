@@ -19,6 +19,7 @@ public:
     void Init();
     void MovePalet(float Pos);
     void Display();
+    void Joue();
 
 private:
     //Les objets du jeux

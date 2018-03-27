@@ -14,15 +14,6 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
     // Reglage de la taille/position
     //setFixedSize(WIN_WIDTH, WIN_HEIGHT);
     move(QApplication::desktop()->screen()->rect().center() - rect().center());
-
-    connect(&m_AnimationTimer,  &QTimer::timeout, [&] {
-            m_TimeElapsed += 1.0f;
-            updateGL();
-        });
-
-        m_AnimationTimer.setInterval(50);
-        m_AnimationTimer.start();
-
 }
 
 
@@ -34,6 +25,8 @@ void MyGLWidget::initializeGL()
 
     // Activation du zbuffer
     glEnable(GL_DEPTH_TEST);
+
+    Jeu_->Init();
 
 }
 
@@ -66,15 +59,11 @@ void MyGLWidget::paintGL()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(0.0f, 0.0f, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
-
     Jeu_->Display();
-
-    //Boule_->SetAngle(Mur_->InteractMur(Boule_->GetX(),Boule_->GetY(),Boule_->GetAngle()));
-    //Boule_->Update();
-    // Affiche les briques
 
 }
 
 void MyGLWidget::SetJeu(Jeu* JeuPtr){
     Jeu_=JeuPtr;
 }
+

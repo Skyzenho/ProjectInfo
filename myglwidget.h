@@ -5,10 +5,6 @@
 #include <QMouseEvent>
 #include <QKeyEvent>
 #include <QTimer>
-#include "brique.h"
-#include "palet.h"
-#include "boule.h"
-#include "mur.h"
 #include "jeu.h"
 #include <QApplication>
 #include <QDesktopWidget>
@@ -37,11 +33,8 @@ protected:
     // Fonction d'affichage
     void paintGL();
 
-private:
-    // Timer d'animation
-    float m_TimeElapsed { 0.0f };
-    QTimer m_AnimationTimer;
 
+private:
     Jeu *Jeu_;
 };
 

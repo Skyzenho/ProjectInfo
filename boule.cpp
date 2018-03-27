@@ -43,25 +43,15 @@ void Boule::Display(){
 }
 
 
-float Boule::GetX(){
-    return posx_;
-}
+float Boule::GetX(){return posx_;}
 
+float Boule::GetY(){return posy_;}
 
-float Boule::GetY(){
-    return posy_;
-}
+float Boule::GetAngle(){return angle_;}
 
-float Boule::GetAngle(){
-    return angle_;
-}
-
-void Boule::SetAngle(float angle){
-    angle_=angle;
-}
+void Boule::SetAngle(float angle){angle_=angle;}
 
 void Boule::Update(){
     posx_=posx_+cos(angle_);
     posy_=posy_+sin(angle_);
-    qDebug()<<posx_<<posy_<<angle_*(180/3.1415);
 }

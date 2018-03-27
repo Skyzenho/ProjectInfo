@@ -33,3 +33,8 @@ void Jeu::Display(){
     Mur_->Display();
     for(Brique * it : v_Brique) it->Display();
 }
+
+void Jeu::Joue(){
+    Boule_->SetAngle(Mur_->InteractMur(Boule_->GetX(),Boule_->GetY(),Boule_->GetAngle()));
+    Boule_->Update();
+}
