@@ -5,7 +5,7 @@ Boule::Boule(float x,float y,float angle)
     posx_=x;
     posy_=y;
     angle_=angle*(3.1415/180);
-
+    Vitese_=1.5;
     // Creation de la quadrique
     m_Body = gluNewQuadric();
     QImage imagetex=QGLWidget::convertToGLFormat(QImage(QString(":/images/Boule.jpg")));
@@ -51,7 +51,9 @@ float Boule::GetAngle(){return angle_;}
 
 void Boule::SetAngle(float angle){angle_=angle;}
 
+void Boule::SetVitese(float vitese){Vitese_=vitese;}
+
 void Boule::Update(){
-    posx_=posx_+cos(angle_);
-    posy_=posy_+sin(angle_);
+    posx_=posx_+Vitese_*cos(angle_);
+    posy_=posy_+Vitese_*sin(angle_);
 }

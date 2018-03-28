@@ -13,6 +13,7 @@ public:
 
     // Affichage du brique
     void Display();
+    float InteractBrique(float x,float y,float angle);
 
 private:
 

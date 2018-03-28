@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Pospalet_=0.0f;
     ui->widget->SetJeu(&Jeu_);
     connect(&m_AnimationTimer,  &QTimer::timeout, [&] {
-            m_TimeElapsed += 0.1f;
+            m_TimeElapsed += 0.05f;
             ui->widget->updateGL();
         });
     connect(&m_AnimationTimer,&QTimer::timeout,[&] {

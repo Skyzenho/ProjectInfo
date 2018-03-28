@@ -22,6 +22,7 @@ public:
     float GetY();
     float GetAngle();
     void SetAngle(float angle);
+    void SetVitese(float vitese);
     void Update();
 
 private:
@@ -31,6 +32,7 @@ private:
     float posx_;
     float posy_;
     float angle_;
+    float Vitese_;
 
     GLuint Texture_;// ID Texture
 

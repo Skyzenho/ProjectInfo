@@ -20,12 +20,13 @@ public:
     void MovePalet(float Pos);
     void Display();
     void Joue();
-
+    void VerifiEtat();
 private:
     //Les objets du jeux
     Palet *Palet_;
     Boule *Boule_;
     Mur *Mur_;
+
     // Liste des Briques
     std::vector<Brique *> v_Brique;
 

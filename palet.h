@@ -4,6 +4,7 @@
 #include <GL/glu.h>
 #include <QImage>
 #include <QGLWidget>
+#include <QDebug>
 class Palet
 {
 public:
@@ -11,6 +12,7 @@ public:
     Palet(float positionX);
     void Display();
     void UpdatePos(float position);
+    float InteractPalet(float x,float y,float angle);
 private:
     float posx_;
     GLuint Texture_;// ID Texture

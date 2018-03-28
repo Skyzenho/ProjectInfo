@@ -27,7 +27,7 @@ void Mur::Display(){
 }
 
 bool Mur::VerifieBas(float y){
-    if (y<=(-BordV+1))return TRUE;
+    if (y<=-BordV-1)return TRUE;
     else return FALSE;
 }
 
