@@ -29,10 +29,10 @@ private:
     // Corps de l'objet
     GLUquadric * m_Body = nullptr;
 
-    float posx_;
-    float posy_;
-    float angle_;
-    float Vitese_;
+    float posx_;                          //       _
+    float posy_;                          //      ´ `
+    float angle_;                         //      | |
+    float Vitese_;                        //      `-´
 
     GLuint Texture_;// ID Texture
 

@@ -16,6 +16,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void AfficheScore();
 
 protected:
     // Fonction de gestion d'interactions clavier
@@ -27,6 +28,7 @@ private:
     // Timer d'animation
     float m_TimeElapsed { 0.0f };
     QTimer m_AnimationTimer;
+    QString Text_;
 };
 
 #endif // MAINWINDOW_H

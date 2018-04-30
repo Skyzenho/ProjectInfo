@@ -7,14 +7,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     Pospalet_=0.0f;
+    Text_=" ";
     ui->widget->SetJeu(&Jeu_);
     connect(&m_AnimationTimer,  &QTimer::timeout, [&] {
             m_TimeElapsed += 0.05f;
             ui->widget->updateGL();
+            Jeu_.Joue();
+            AfficheScore();
         });
-    connect(&m_AnimationTimer,&QTimer::timeout,[&] {
-        Jeu_.Joue();
-    });
 
     m_AnimationTimer.setInterval(50);
     m_AnimationTimer.start();
@@ -74,4 +74,9 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
     // Acceptation de l'evenement et mise a jour de la scene
     event->accept();
     ui->widget->updateGL();
+}
+
+void MainWindow::AfficheScore(){
+    Text_="Score: "+QString::number(Jeu_.GetScore())+" Vies: "+QString::number(Jeu_.GetVie());
+    ui->Stats->setText(Text_);
 }

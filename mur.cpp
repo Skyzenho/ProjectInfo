@@ -33,7 +33,7 @@ bool Mur::VerifieBas(float y){
 
 float Mur::InteractMur(float x,float y,float angle){
 
-    if(x>=(BordH-1)) return (180-angle*180/3.1415)*(3.1415/180);//VerifieDroite
+    if(x+1>=BordH) return (180-angle*180/3.1415)*(3.1415/180);//VerifieDroite
     else if(x<=(-BordH+1)) return (180-angle*180/3.1415)*(3.1415/180);//VerifieGauche
     else if(y>=(BordV-1)) return -angle;//VerifieHaut
     else  return angle;
