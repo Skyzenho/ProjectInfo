@@ -24,6 +24,11 @@ public:
 protected:
     // Fonction de gestion d'interactions clavier
     void keyPressEvent(QKeyEvent * event);
+private slots:
+    void on_Start_clicked();
+
+    void on_Config_clicked();
+
 private:
     Ui::MainWindow *ui;
     float Pospalet_;
@@ -31,7 +36,6 @@ private:
     // Timer d'animation
     float m_TimeElapsed { 0.0f };
     QTimer m_AnimationTimer;
-    QString Text_;
     Camera *Camera_;
 };
 

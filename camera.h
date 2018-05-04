@@ -6,7 +6,7 @@
 #include "opencv2/highgui/highgui.hpp"
 #include <cstdio>
 #include <iostream>
-#include <QDebug>
+#include <QImage>
 
 
 using namespace cv;
@@ -19,6 +19,7 @@ public:
     Camera();
 
     void Update();
+    QImage GetImage();
 private:
     VideoCapture cap;
     Rect *workingRect,*workingRect1,*workingRect2;

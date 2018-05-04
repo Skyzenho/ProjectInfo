@@ -18,16 +18,25 @@ public:
     void MovePalet(float Pos);
     void Display();
     void Joue();
-    void VerifiEtat();
+    void Restart();
     int GetScore();
     int GetVie();
+    int GetNivel();
+    bool GetEtat();
+    void NextLvl();
+private:
+    void VerifiEtat();
+
+
 private:
     //Les objets du jeux
     Palet *Palet_;
     Boule *Boule_;
     Mur *Mur_;
-    int Score_;
+    int unsigned Score_;
     int Vie_;
+    int Nivel_;
+    bool FinPartie;
     // Liste des Briques
     std::vector<Brique *> v_Brique;
 

@@ -18,8 +18,6 @@ Camera::Camera(){
         templateRect1=new Rect((workingRect1->width-templateWidth)/2,(workingRect1->height-templateHeight)/2,templateWidth,templateHeight);
         templateRect2=new Rect((workingRect2->width-templateWidth)/2,(workingRect2->height-templateHeight)/2,templateWidth,templateHeight);
 
-
-
         workingCenter=new Point(workingRect->x+subImageWidth/2,workingRect->y+subImageHeight/2);
         workingCenter1=new Point(workingRect1->x+subImageWidth/2,workingRect1->y+subImageHeight/2);
         workingCenter2=new Point(workingRect2->x+subImageWidth/2,workingRect2->y+subImageHeight/2);
@@ -78,27 +76,12 @@ Camera::Camera(){
         resultImage2.create( result_cols2, result_rows2, CV_32FC1 );
 
 
-
-        // Init output window
-        namedWindow("WebCam",1);
-        imshow("WebCam", frame1);
-        Update();
-
-      // while (waitKey(5)<0)
-       // {
-
-            //qDebug()<< (vect.x+vect1.x+vect2.x)/3<<endl;
-
-
-        //}
         // the camera will be deinitialized automatically in VideoCapture destructor
 }
 
 void Camera::Update(){
     // Get frame2
     if(cap.read(frame2)){
-    //cap >> frame2;
-
 
     // Mirror effect
     cv::flip(frame2,frame2,1);
@@ -125,8 +108,6 @@ void Camera::Update(){
     matchTemplate( frameRect4, templateImage1, resultImage1, TM_CCORR_NORMED );
     matchTemplate( frameRect6, templateImage2, resultImage2, TM_CCORR_NORMED );
 
-
-
     // Localize the best match with minMaxLoc
     double minVal; double maxVal; Point minLoc; Point maxLoc;
     minMaxLoc( resultImage, &minVal, &maxVal, &minLoc, &maxLoc);
@@ -149,21 +130,13 @@ void Camera::Update(){
     rectangle(frame2,*workingRect1,Scalar( 255, 0, 0),2);
     rectangle(frame2,*workingRect2,Scalar( 0, 0, 255),2);
 
-
-
     Point p(workingCenter->x+vect.x,workingCenter->y+vect.y);
     Point p1(workingCenter1->x+vect1.x,workingCenter1->y+vect1.y);
     Point p2(workingCenter2->x+vect2.x,workingCenter2->y+vect2.y);
 
-
-
     arrowedLine(frame2,*workingCenter,p,Scalar(255,255,255),2);
     arrowedLine(frame2,*workingCenter1,p1,Scalar(255,255,255),2);
     arrowedLine(frame2,*workingCenter2,p2,Scalar(255,255,255),2);
-
-
-    // Display frame2
-    imshow("WebCam", frame2);
 
     // Swap matrixes
     swap(frameRect1,frameRect2);
@@ -173,4 +146,9 @@ void Camera::Update(){
     else {
         cout<<"Error capturing the frame"<<endl;
     }
+}
+
+QImage Camera::GetImage()
+{
+    return QImage((const unsigned char*)(frame2.data),frame2.cols,frame2.rows,QImage::Format_RGB888);
 }

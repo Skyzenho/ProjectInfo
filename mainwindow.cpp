@@ -6,19 +6,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    Pospalet_=0.0f;
-    Text_=" ";
     Camera_=new Camera();
+    Pospalet_=0.0;
     ui->widget->SetJeu(&Jeu_);
     connect(&m_AnimationTimer,  &QTimer::timeout, [&] {
-            m_TimeElapsed += 0.05f;
+            m_TimeElapsed += 0.025f;
             ui->widget->updateGL();
             Camera_->Update();
             Jeu_.Joue();
             AfficheScore();
+            if(Jeu_.GetEtat())m_AnimationTimer.stop();
         });
-
-    m_AnimationTimer.setInterval(50);
+    m_AnimationTimer.setInterval(25);
     m_AnimationTimer.start();
 }
 
@@ -48,15 +47,15 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
                break;
         }
 
-        case Qt::Key_Left:
-        {
-            if (Pospalet_>-43.0f){//Il ne peut pas travesser le mur
-                Pospalet_-=1.0f;
-                Jeu_.MovePalet(Pospalet_);
-            }
-            break;
+    case Qt::Key_A:
+    {
+        if (Pospalet_>-43.0f){//Il ne peut pas travesser le mur
+            Pospalet_-=1.0f;
+            Jeu_.MovePalet(Pospalet_);
         }
-        case Qt::Key_Right:
+        break;
+    }
+        case Qt::Key_D:
         {
             if (Pospalet_<43.0f){//Il ne peut pas travesser le mur
               Pospalet_+=1.0f;
@@ -79,6 +78,26 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
 }
 
 void MainWindow::AfficheScore(){
-    Text_="Score: "+QString::number(Jeu_.GetScore())+" Vies: "+QString::number(Jeu_.GetVie());
-    ui->Stats->setText(Text_);
+    QString Text;
+    Text="Time: "+QString::number(m_TimeElapsed,'f',2)+"s";
+    ui->Time->setText(Text);
+    Text="Score: "+QString::number(Jeu_.GetScore())+" Vies: "+QString::number(Jeu_.GetVie());
+    ui->Stats->setText(Text);
+    Text="Nivel: "+QString::number(Jeu_.GetNivel());
+    ui->Nivel->setText(Text);
+    ui->ImageLabel->setPixmap(QPixmap::fromImage(Camera_->GetImage()));
+    ui->ImageLabel->resize(ui->ImageLabel->pixmap()->size());
+}
+
+void MainWindow::on_Start_clicked()
+{
+    Jeu_.Restart();
+    Pospalet_=0.0;
+    m_TimeElapsed=0.0;
+    m_AnimationTimer.start();
+}
+
+void MainWindow::on_Config_clicked()
+{
+    Jeu_.NextLvl();
 }

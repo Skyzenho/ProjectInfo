@@ -4,7 +4,8 @@ Brique::Brique(float x,float y)
 {
     posx_=x;
     posy_=y;
-    Taille_=2.5;
+    Taille_=4.5;
+    Hauteur_=1.5;
     QImage imagetex=QGLWidget::convertToGLFormat(QImage(QString(":/images/Briques.jpg")));
     glGenTextures(1,&Texture_);
     glBindTexture(GL_TEXTURE_2D,Texture_);
@@ -25,37 +26,37 @@ void Brique::Display(){
     glBindTexture(GL_TEXTURE_2D,Texture_);
     glBegin(GL_QUADS);
 
-    glTexCoord2f(0, 0);glVertex3f(Taille_, 1.0f, 2.5f);
-    glTexCoord2f(1, 0);glVertex3f(-Taille_, 1.0f, 2.5f);
-    glTexCoord2f(1, 1);glVertex3f(-Taille_,-1.0f, 2.5f);
-    glTexCoord2f(0, 1);glVertex3f(Taille_,-1.0f, 2.5f);
+    glTexCoord2f(0, 0);glVertex3f(Taille_, Hauteur_, 2.5f);
+    glTexCoord2f(1, 0);glVertex3f(-Taille_, Hauteur_, 2.5f);
+    glTexCoord2f(1, 1);glVertex3f(-Taille_,-Hauteur_, 2.5f);
+    glTexCoord2f(0, 1);glVertex3f(Taille_,-Hauteur_, 2.5f);
 
 
-    glTexCoord2f(0, 0);glVertex3f(Taille_, 1.0f, -2.5f);
-    glTexCoord2f(1, 0);glVertex3f(Taille_,-1.0f, -2.5f);
-    glTexCoord2f(1, 1);glVertex3f(-Taille_,-1.0f, -2.5f);
-    glTexCoord2f(0, 1);glVertex3f(-Taille_, 1.0f, -2.5f);
+    glTexCoord2f(0, 0);glVertex3f(Taille_, Hauteur_, -2.5f);
+    glTexCoord2f(1, 0);glVertex3f(Taille_,-Hauteur_, -2.5f);
+    glTexCoord2f(1, 1);glVertex3f(-Taille_,-Hauteur_, -2.5f);
+    glTexCoord2f(0, 1);glVertex3f(-Taille_, Hauteur_, -2.5f);
 
-    glTexCoord2f(0, 0);glVertex3f(Taille_, 1.0f, -2.5f);
-    glTexCoord2f(1, 0);glVertex3f(Taille_, 1.0f, 2.5f);
-    glTexCoord2f(1, 1);glVertex3f(-Taille_, 1.0f, 2.5f);
-    glTexCoord2f(0, 1);glVertex3f(-Taille_, 1.0f, -2.5f);
+    glTexCoord2f(0, 0);glVertex3f(Taille_, Hauteur_, -2.5f);
+    glTexCoord2f(1, 0);glVertex3f(Taille_, Hauteur_, 2.5f);
+    glTexCoord2f(1, 1);glVertex3f(-Taille_, Hauteur_, 2.5f);
+    glTexCoord2f(0, 1);glVertex3f(-Taille_, Hauteur_, -2.5f);
 
-    glTexCoord2f(0, 0);glVertex3f(Taille_, 1.0f, -2.5f);
-    glTexCoord2f(1, 0);glVertex3f(-Taille_, 1.0f, -2.5f);
-    glTexCoord2f(1, 1);glVertex3f(-Taille_, 1.0f, 2.5f);
-    glTexCoord2f(0, 1);glVertex3f(Taille_, 1.0f, 2.5f);
+    glTexCoord2f(0, 0);glVertex3f(Taille_, Hauteur_, -2.5f);
+    glTexCoord2f(1, 0);glVertex3f(-Taille_, Hauteur_, -2.5f);
+    glTexCoord2f(1, 1);glVertex3f(-Taille_, Hauteur_, 2.5f);
+    glTexCoord2f(0, 1);glVertex3f(Taille_, Hauteur_, 2.5f);
 
-    glTexCoord2f(0, 0);glVertex3f(-Taille_, 1.0f, -2.5f);
-    glTexCoord2f(1, 0);glVertex3f(-Taille_,-1.0f, -2.5f);
-    glTexCoord2f(1, 1);glVertex3f(-Taille_,-1.0f, 2.5f);
-    glTexCoord2f(0, 1);glVertex3f(-Taille_, 1.0f, 2.5f);
+    glTexCoord2f(0, 0);glVertex3f(-Taille_, Hauteur_, -2.5f);
+    glTexCoord2f(1, 0);glVertex3f(-Taille_,-Hauteur_, -2.5f);
+    glTexCoord2f(1, 1);glVertex3f(-Taille_,-Hauteur_, 2.5f);
+    glTexCoord2f(0, 1);glVertex3f(-Taille_, Hauteur_, 2.5f);
 
 
-    glTexCoord2f(0, 0);glVertex3f(Taille_, 1.0f, -2.5f);
-    glTexCoord2f(1, 0);glVertex3f(Taille_, 1.0f, 2.5f);
-    glTexCoord2f(1, 1);glVertex3f(Taille_,-1.0f, 2.5f);
-    glTexCoord2f(0, 1);glVertex3f(Taille_,-1.0f, -2.5f);
+    glTexCoord2f(0, 0);glVertex3f(Taille_, Hauteur_, -2.5f);
+    glTexCoord2f(1, 0);glVertex3f(Taille_, Hauteur_, 2.5f);
+    glTexCoord2f(1, 1);glVertex3f(Taille_,-Hauteur_, 2.5f);
+    glTexCoord2f(0, 1);glVertex3f(Taille_,-Hauteur_, -2.5f);
     glEnd();
     glDisable(GL_TEXTURE_2D);
     glPopMatrix();
@@ -64,19 +65,19 @@ void Brique::Display(){
 
 float Brique::InteractBrique(float x,float y,float angle){
     if(disp_){
-        if(((y+0.707>=(posy_-1))&&(y+0.707<=(posy_+1))&&(x-0.707>=posx_-Taille_)&&(x-0.707<=posx_+Taille_))||((y+1>=(posy_-1))&&(y+1<=(posy_+1))&&(x>=posx_-Taille_)&&(x<=posx_+Taille_))||((y+0.707>=(posy_-1))&&(y+0.707<=(posy_+1))&&(x+0.707>=posx_-Taille_)&&(x+0.707<=posx_+Taille_))) {
+        if(((y+0.707>=(posy_-Hauteur_))&&(y+0.707<=(posy_+Hauteur_))&&(x-0.707>=posx_-Taille_)&&(x-0.707<=posx_+Taille_))||((y+1>=(posy_-Hauteur_))&&(y+1<=(posy_+Hauteur_))&&(x>=posx_-Taille_)&&(x<=posx_+Taille_))||((y+0.707>=(posy_-Hauteur_))&&(y+0.707<=(posy_+Hauteur_))&&(x+0.707>=posx_-Taille_)&&(x+0.707<=posx_+Taille_))) {
             disp_=FALSE;
             return -angle;//VerifieBas brique
         }
-        else if(((y-0.707>=(posy_-1))&&(y-0.707<=(posy_+1))&&(x-0.707>=posx_-Taille_)&&(x-0.707<=posx_+Taille_))||((y-1>=(posy_+1))&&(y-1<=(posy_-1))&&(x>=posx_-Taille_)&&(x<=posx_+Taille_))||((y-0.707>=(posy_-1))&&(y-0.707<=(posy_+1))&&(x+0.707>=posx_-Taille_)&&(x+0.707<=posx_+Taille_))){
+        else if(((y-0.707>=(posy_-Hauteur_))&&(y-0.707<=(posy_+Hauteur_))&&(x-0.707>=posx_-Taille_)&&(x-0.707<=posx_+Taille_))||((y-1>=(posy_+Hauteur_))&&(y-1<=(posy_-Hauteur_))&&(x>=posx_-Taille_)&&(x<=posx_+Taille_))||((y-0.707>=(posy_-Hauteur_))&&(y-0.707<=(posy_+Hauteur_))&&(x+0.707>=posx_-Taille_)&&(x+0.707<=posx_+Taille_))){
             disp_=FALSE;
             return -angle;//VerifieHaut brique
         }
-        else if(((x+0.707>=(posx_-Taille_))&&(x+0.707<=(posx_+Taille_))&&(y+0.707>=posy_-1)&&(y+0.707<=posy_+1))||((x+1>=(posx_-Taille_))&&(x+1<=(posx_+Taille_))&&(y>=posy_-1)&&(y<=posy_+1))||((x+0.707>=(posx_-Taille_))&&(x+0.707<=(posx_+Taille_))&&(y-0.707>=posy_-1)&&(y-0.707<=posy_+1))){
+        else if(((x+0.707>=(posx_-Taille_))&&(x+0.707<=(posx_+Taille_))&&(y+0.707>=posy_-Hauteur_)&&(y+0.707<=posy_+Hauteur_))||((x+1>=(posx_-Taille_))&&(x+1<=(posx_+Taille_))&&(y>=posy_-Hauteur_)&&(y<=posy_+Hauteur_))||((x+0.707>=(posx_-Taille_))&&(x+0.707<=(posx_+Taille_))&&(y-0.707>=posy_-Hauteur_)&&(y-0.707<=posy_+Hauteur_))){
             disp_=FALSE;
             return (180-angle*180/3.1415)*(3.1415/180);//VerifieGauche brique
         }
-        else if(((x-0.707>=(posx_-Taille_))&&(x-0.707<=(posx_+Taille_))&&(y+0.707>=posy_-1)&&(y+0.707<=posy_+1))||((x-1>=(posx_+Taille_))&&(x-1<=(posx_-Taille_))&&(y>=posy_-1)&&(y<=posy_+1))||((x-0.707>=(posx_-Taille_))&&(x-0.707<=(posx_+Taille_))&&(y-0.707>=posy_-1)&&(y-0.707<=posy_+1))){
+        else if(((x-0.707>=(posx_-Taille_))&&(x-0.707<=(posx_+Taille_))&&(y+0.707>=posy_-Hauteur_)&&(y+0.707<=posy_+Hauteur_))||((x-1>=(posx_+Taille_))&&(x-1<=(posx_-Taille_))&&(y>=posy_-Hauteur_)&&(y<=posy_+Hauteur_))||((x-0.707>=(posx_-Taille_))&&(x-0.707<=(posx_+Taille_))&&(y-0.707>=posy_-Hauteur_)&&(y-0.707<=posy_+Hauteur_))){
             disp_=FALSE;
             return (180-angle*180/3.1415)*(3.1415/180);//VerifieDroite brique
         }

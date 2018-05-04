@@ -21,6 +21,7 @@ private:
     float posx_;
     float posy_;
     float Taille_;
+    float Hauteur_;
     bool disp_; // Etat du brique. casse ou pas
     GLuint Texture_;// ID Texture
 };
