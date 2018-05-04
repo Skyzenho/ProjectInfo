@@ -8,10 +8,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     Pospalet_=0.0f;
     Text_=" ";
+    Camera_=new Camera();
     ui->widget->SetJeu(&Jeu_);
     connect(&m_AnimationTimer,  &QTimer::timeout, [&] {
             m_TimeElapsed += 0.05f;
             ui->widget->updateGL();
+            Camera_->Update();
             Jeu_.Joue();
             AfficheScore();
         });

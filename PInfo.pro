@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     palet.cpp \
     boule.cpp \
     mur.cpp \
-    jeu.cpp
+    jeu.cpp \
+    camera.cpp
 
 HEADERS  += mainwindow.h \
     brique.h \
@@ -39,7 +40,8 @@ HEADERS  += mainwindow.h \
     palet.h \
     boule.h \
     mur.h \
-    jeu.h
+    jeu.h \
+    camera.h
 
 FORMS    += mainwindow.ui
 
@@ -47,3 +49,12 @@ CONFIG+=c++11
 
 RESOURCES += \
     images.qrc
+
+INCLUDEPATH +=$$(OPENCV_DIR)\..\..\include
+
+LIBS += -L$$(OPENCV_DIR)\lib \
+    -lopencv_core2413 \
+    -lopencv_highgui2413 \
+    -lopencv_imgproc2413 \
+    -lopencv_features2d2413 \
+    -lopencv_calib3d2413

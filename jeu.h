@@ -1,14 +1,12 @@
 #ifndef JEU_H
 #define JEU_H
 
-#include <QTimer>
-#include <GL/glu.h>
+
 #include "brique.h"
 #include "palet.h"
 #include "boule.h"
 #include "mur.h"
 #include <QDebug>
-
 
 class Jeu
 {

@@ -3,7 +3,10 @@
 
 #include <QMainWindow>
 #include "jeu.h"
+#include "camera.h"
 #include <QTimer>
+#include <QMouseEvent>
+#include <QKeyEvent>
 
 namespace Ui {
 class MainWindow;
@@ -29,6 +32,7 @@ private:
     float m_TimeElapsed { 0.0f };
     QTimer m_AnimationTimer;
     QString Text_;
+    Camera *Camera_;
 };
 
 #endif // MAINWINDOW_H

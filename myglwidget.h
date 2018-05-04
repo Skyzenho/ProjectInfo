@@ -2,9 +2,6 @@
 #define MYGLWIDGET_H
 #include <GL/glu.h>
 #include <QGLWidget>
-#include <QMouseEvent>
-#include <QKeyEvent>
-#include <QTimer>
 #include "jeu.h"
 #include <QApplication>
 #include <QDesktopWidget>
