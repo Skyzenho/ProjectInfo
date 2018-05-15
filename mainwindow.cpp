@@ -7,14 +7,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     Camera_=new Camera();
-    Pospalet_=0.0;
     ui->widget->SetJeu(&Jeu_);
     connect(&m_AnimationTimer,  &QTimer::timeout, [&] {
             m_TimeElapsed += 0.025f;
-            ui->widget->updateGL();
+
             Camera_->Update();
+            Jeu_.UpdatePalet(Camera_->GetVectX());
             Jeu_.Joue();
             AfficheScore();
+            ui->widget->updateGL();
             if(Jeu_.GetEtat())m_AnimationTimer.stop();
         });
     m_AnimationTimer.setInterval(25);
@@ -47,21 +48,15 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
                break;
         }
 
-    case Qt::Key_A:
-    {
-        if (Pospalet_>-43.0f){//Il ne peut pas travesser le mur
-            Pospalet_-=1.0f;
-            Jeu_.MovePalet(Pospalet_);
-        }
+        case Qt::Key_A:
+        {
+            Jeu_.UpdatePalet(-1);
         break;
-    }
+        }
         case Qt::Key_D:
         {
-            if (Pospalet_<43.0f){//Il ne peut pas travesser le mur
-              Pospalet_+=1.0f;
-              Jeu_.MovePalet(Pospalet_);
-            }
-            break;
+              Jeu_.UpdatePalet(1);
+        break;
         }
         // Cas par defaut
         default:
@@ -92,7 +87,6 @@ void MainWindow::AfficheScore(){
 void MainWindow::on_Start_clicked()
 {
     Jeu_.Restart();
-    Pospalet_=0.0;
     m_TimeElapsed=0.0;
     m_AnimationTimer.start();
 }

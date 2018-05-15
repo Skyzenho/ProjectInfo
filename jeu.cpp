@@ -24,12 +24,7 @@ void Jeu::Init(){
     Vie_=2;
     Nivel_=1;
     FinPartie=FALSE;
-
-}
-
-
-void Jeu::MovePalet(float Pos){
-    Palet_->UpdatePos(Pos);
+    Pospalet_=0;
 }
 
 void Jeu::Display(){
@@ -82,6 +77,14 @@ void Jeu::Restart()
     delete Palet_;
     v_Brique.clear();
     Init();
+}
+
+void Jeu::UpdatePalet(float Pos)
+{
+    if(Pospalet_+Pos>43)Pospalet_=43;
+    else if(Pospalet_+Pos<-43)Pospalet_=-43;
+    else Pospalet_+=Pos;
+    Palet_->UpdatePos(Pospalet_);
 }
 
 

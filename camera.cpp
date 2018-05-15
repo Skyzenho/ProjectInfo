@@ -142,6 +142,8 @@ void Camera::Update(){
     swap(frameRect1,frameRect2);
     swap(frameRect3,frameRect4);
     swap(frameRect5,frameRect6);
+    VectX=(vect.x+vect1.x+vect2.x)/6.0;//Ponderation 50%
+    qDebug()<<VectX<<endl;
     }
     else {
         cout<<"Error capturing the frame"<<endl;
@@ -151,4 +153,10 @@ void Camera::Update(){
 QImage Camera::GetImage()
 {
     return QImage((const unsigned char*)(frame2.data),frame2.cols,frame2.rows,QImage::Format_RGB888);
+}
+
+
+float Camera::GetVectX()
+{
+ return VectX;
 }

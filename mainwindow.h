@@ -31,7 +31,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    float Pospalet_;
     Jeu Jeu_;
     // Timer d'animation
     float m_TimeElapsed { 0.0f };

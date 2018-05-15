@@ -15,10 +15,10 @@ public:
     Jeu();
 
     void Init();
-    void MovePalet(float Pos);
     void Display();
     void Joue();
     void Restart();
+    void UpdatePalet(float Pos);
     int GetScore();
     int GetVie();
     int GetNivel();
@@ -33,6 +33,7 @@ private:
     Palet *Palet_;
     Boule *Boule_;
     Mur *Mur_;
+    float Pospalet_;
     int unsigned Score_;
     int Vie_;
     int Nivel_;

@@ -7,7 +7,7 @@
 #include <cstdio>
 #include <iostream>
 #include <QImage>
-
+#include <QDebug>
 
 using namespace cv;
 using namespace std;
@@ -19,6 +19,7 @@ public:
     Camera();
 
     void Update();
+    float GetVectX();
     QImage GetImage();
 private:
     VideoCapture cap;
@@ -31,7 +32,7 @@ private:
     Mat frameRect3,frameRect4;
     Mat frameRect5,frameRect6;
     Mat resultImage,resultImage1,resultImage2;
-
+    float VectX;
 };
 
 #endif // CAMERA_H
