@@ -45,9 +45,8 @@ HEADERS  += mainwindow.h \
     camera.h \
     configwindow.h
 
-FORMS    += mainwindow.ui \
-    configwindow.ui
-
+FORMS    += mainwindow.ui\
+configwindow.ui
 CONFIG+=c++11
 
 RESOURCES += \
