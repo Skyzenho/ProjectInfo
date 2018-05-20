@@ -2,6 +2,7 @@
 #define PALET_H
 
 #include <GL/glu.h>
+#include "configwindow.h"
 #include <QImage>
 #include <QGLWidget>
 #include <QDebug>
@@ -16,6 +17,8 @@ public:
 private:
     float posx_;
     GLuint Texture_;// ID Texture
+public:
+    ConfigWindow c;
 };
 
 #endif // PALET_H

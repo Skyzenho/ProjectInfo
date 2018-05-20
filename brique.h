@@ -4,6 +4,8 @@
 #include <GL/glu.h>
 #include <QImage>
 #include <QGLWidget>
+#include <random>
+#include <QDebug>
 
 class Brique
 {

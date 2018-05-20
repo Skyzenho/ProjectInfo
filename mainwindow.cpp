@@ -58,6 +58,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
               Jeu_.UpdatePalet(1);
         break;
         }
+
         // Cas par defaut
         default:
         {
@@ -93,5 +94,12 @@ void MainWindow::on_Start_clicked()
 
 void MainWindow::on_Config_clicked()
 {
-    Jeu_.NextLvl();
+    QObject::connect(ui->Config, SIGNAL(clicked()), this, SLOT(openConfiguration()));
+}
+
+void MainWindow::openConfiguration()
+{
+    m_AnimationTimer.stop();
+    ConfigWindow cw(this);
+    cw.exec();
 }

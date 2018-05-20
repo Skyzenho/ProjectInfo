@@ -6,13 +6,36 @@ Brique::Brique(float x,float y)
     posy_=y;
     Taille_=4.5;
     Hauteur_=1.5;
-    QImage imagetex=QGLWidget::convertToGLFormat(QImage(QString(":/images/Briques.jpg")));
-    glGenTextures(1,&Texture_);
-    glBindTexture(GL_TEXTURE_2D,Texture_);
-    glTexImage2D(GL_TEXTURE_2D,0,3,imagetex.width(),imagetex.height(),0,GL_RGBA,GL_UNSIGNED_BYTE,imagetex.bits());
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
-    disp_=TRUE;
+    int aleatoire = (rand() % (3 - 1 + 1)) + 1;
+    qDebug()<<aleatoire;
+    if(aleatoire == 1){
+        QImage imagetex=QGLWidget::convertToGLFormat(QImage(QString(":/images/Briques.jpg")));
+        glGenTextures(1,&Texture_);
+        glBindTexture(GL_TEXTURE_2D,Texture_);
+        glTexImage2D(GL_TEXTURE_2D,0,3,imagetex.width(),imagetex.height(),0,GL_RGBA,GL_UNSIGNED_BYTE,imagetex.bits());
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+        disp_=TRUE;
+    }
+    if(aleatoire == 2){
+        QImage imagetex=QGLWidget::convertToGLFormat(QImage(QString(":/images/Briques1.jpg")));
+        glGenTextures(1,&Texture_);
+        glBindTexture(GL_TEXTURE_2D,Texture_);
+        glTexImage2D(GL_TEXTURE_2D,0,3,imagetex.width(),imagetex.height(),0,GL_RGBA,GL_UNSIGNED_BYTE,imagetex.bits());
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+        disp_=TRUE;
+    }
+    if(aleatoire == 3){
+        QImage imagetex=QGLWidget::convertToGLFormat(QImage(QString(":/images/Briques2.jpg")));
+        glGenTextures(1,&Texture_);
+        glBindTexture(GL_TEXTURE_2D,Texture_);
+        glTexImage2D(GL_TEXTURE_2D,0,3,imagetex.width(),imagetex.height(),0,GL_RGBA,GL_UNSIGNED_BYTE,imagetex.bits());
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+        disp_=TRUE;
+    }
+
 }
 
 

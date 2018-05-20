@@ -4,10 +4,11 @@
 #include <QMainWindow>
 #include "jeu.h"
 #include "camera.h"
+#include "configwindow.h"
 #include <QTimer>
 #include <QMouseEvent>
 #include <QKeyEvent>
-
+#include <QWidget>
 namespace Ui {
 class MainWindow;
 }
@@ -28,6 +29,9 @@ private slots:
     void on_Start_clicked();
 
     void on_Config_clicked();
+
+    void openConfiguration();
+
 
 private:
     Ui::MainWindow *ui;

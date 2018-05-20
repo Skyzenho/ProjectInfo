@@ -143,7 +143,6 @@ void Camera::Update(){
     swap(frameRect3,frameRect4);
     swap(frameRect5,frameRect6);
     VectX=(vect.x+vect1.x+vect2.x)/6.0;//Ponderation 50%
-    qDebug()<<VectX<<endl;
     }
     else {
         cout<<"Error capturing the frame"<<endl;
