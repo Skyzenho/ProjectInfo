@@ -22,17 +22,17 @@ public:
     float GetY();
     float GetAngle();
     void SetAngle(float angle);
-    void SetVitese(float vitese);
+    void SetVitesse(float vitesse);
     void Update();
 
 private:
     // Corps de l'objet
     GLUquadric * m_Body = nullptr;
 
-    float posx_;                          //       _
-    float posy_;                          //      ´ `
-    float angle_;                         //      | |
-    float Vitese_;                        //      `-´
+    float posx_;
+    float posy_;
+    float angle_;
+    float Vitesse_;
 
     GLuint Texture_;// ID Texture
 

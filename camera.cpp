@@ -129,7 +129,7 @@ void Camera::Update(){
     swap(frameRect1,frameRect2);
     swap(frameRect3,frameRect4);
     swap(frameRect5,frameRect6);
-    VectX=(vect.x+vect1.x+vect2.x)/6.0;//Ponderation 50%
+    VectX=(vect.x+vect1.x+vect2.x)/6.0;//Pondération 50%
     }
     else {
         cout<<"Error capturing the frame"<<endl;

@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    // Initialisation du generateur de nombres aleatoires
+    // Initialisation du générateur de nombres aléatoires
        srand(time(nullptr));
 
     QApplication a(argc, argv);

@@ -7,7 +7,7 @@
 #include <QDesktopWidget>
 
 
-// Classe dediee a l'affichage d'une scene OpenGL
+// Classe dédiée à l'affichage d'une scène OpenGL
 class MyGLWidget : public QGLWidget
 {
     Q_OBJECT

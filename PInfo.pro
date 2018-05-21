@@ -32,8 +32,7 @@ SOURCES += main.cpp\
     boule.cpp \
     mur.cpp \
     jeu.cpp \
-    camera.cpp \
-    configwindow.cpp
+    camera.cpp
 
 HEADERS  += mainwindow.h \
     brique.h \
@@ -42,11 +41,9 @@ HEADERS  += mainwindow.h \
     boule.h \
     mur.h \
     jeu.h \
-    camera.h \
-    configwindow.h
+    camera.h
 
-FORMS    += mainwindow.ui\
-configwindow.ui
+FORMS    += mainwindow.ui
 CONFIG+=c++11
 
 RESOURCES += \

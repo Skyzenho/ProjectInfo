@@ -22,7 +22,7 @@ public:
     void AfficheScore();
 
 protected:
-    // Fonction de gestion d'interactions clavier
+    // Fonction de gestion d'interaction clavier
     void keyPressEvent(QKeyEvent * event);
 private slots:
     void on_Start_clicked();

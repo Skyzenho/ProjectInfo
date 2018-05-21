@@ -89,19 +89,19 @@ float Brique::InteractBrique(float x,float y,float angle){
     if(disp_){
         if(((y+0.707>=(posy_-Hauteur_))&&(y+0.707<=(posy_+Hauteur_))&&(x-0.707>=posx_-Taille_)&&(x-0.707<=posx_+Taille_))||((y+1>=(posy_-Hauteur_))&&(y+1<=(posy_+Hauteur_))&&(x>=posx_-Taille_)&&(x<=posx_+Taille_))||((y+0.707>=(posy_-Hauteur_))&&(y+0.707<=(posy_+Hauteur_))&&(x+0.707>=posx_-Taille_)&&(x+0.707<=posx_+Taille_))) {
             disp_=FALSE;
-            return -angle;//VerifieBas brique
+            return -angle;//Vérifie Bas brique
         }
         else if(((y-0.707>=(posy_-Hauteur_))&&(y-0.707<=(posy_+Hauteur_))&&(x-0.707>=posx_-Taille_)&&(x-0.707<=posx_+Taille_))||((y-1>=(posy_+Hauteur_))&&(y-1<=(posy_-Hauteur_))&&(x>=posx_-Taille_)&&(x<=posx_+Taille_))||((y-0.707>=(posy_-Hauteur_))&&(y-0.707<=(posy_+Hauteur_))&&(x+0.707>=posx_-Taille_)&&(x+0.707<=posx_+Taille_))){
             disp_=FALSE;
-            return -angle;//VerifieHaut brique
+            return -angle;//Vérifie Haut brique
         }
         else if(((x+0.707>=(posx_-Taille_))&&(x+0.707<=(posx_+Taille_))&&(y+0.707>=posy_-Hauteur_)&&(y+0.707<=posy_+Hauteur_))||((x+1>=(posx_-Taille_))&&(x+1<=(posx_+Taille_))&&(y>=posy_-Hauteur_)&&(y<=posy_+Hauteur_))||((x+0.707>=(posx_-Taille_))&&(x+0.707<=(posx_+Taille_))&&(y-0.707>=posy_-Hauteur_)&&(y-0.707<=posy_+Hauteur_))){
             disp_=FALSE;
-            return (180-angle*180/3.1415)*(3.1415/180);//VerifieGauche brique
+            return (180-angle*180/3.1415)*(3.1415/180);//Vérifie Gauche brique
         }
         else if(((x-0.707>=(posx_-Taille_))&&(x-0.707<=(posx_+Taille_))&&(y+0.707>=posy_-Hauteur_)&&(y+0.707<=posy_+Hauteur_))||((x-1>=(posx_+Taille_))&&(x-1<=(posx_-Taille_))&&(y>=posy_-Hauteur_)&&(y<=posy_+Hauteur_))||((x-0.707>=(posx_-Taille_))&&(x-0.707<=(posx_+Taille_))&&(y-0.707>=posy_-Hauteur_)&&(y-0.707<=posy_+Hauteur_))){
             disp_=FALSE;
-            return (180-angle*180/3.1415)*(3.1415/180);//VerifieDroite brique
+            return (180-angle*180/3.1415)*(3.1415/180);//Vérifie Droite brique
         }
         else  return angle;
     }

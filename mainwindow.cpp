@@ -59,7 +59,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
         break;
         }
 
-        // Cas par defaut
+        // Cas par défaut
         default:
         {
             // Ignorer l'evenement
@@ -68,7 +68,7 @@ void MainWindow::keyPressEvent(QKeyEvent * event)
         }
     }
 
-    // Acceptation de l'evenement et mise a jour de la scene
+    // Acceptation de l'évènement et mise à jour de la scène
     event->accept();
     ui->widget->updateGL();
 }

@@ -12,7 +12,7 @@ public:
     // Constructeur
     Mur(float H,float V);
 
-    // Affichage du brique
+    // Affichage des murs
     void Display();
     bool VerifieBas(float y);
     float InteractMur(float x,float y,float angle);

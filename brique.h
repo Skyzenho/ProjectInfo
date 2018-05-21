@@ -13,7 +13,7 @@ public:
     // Constructeur
     Brique(float x,float y);
 
-    // Affichage du brique
+    // Affichage des brique
     void Display();
     float InteractBrique(float x,float y,float angle);
     bool GetEtat();

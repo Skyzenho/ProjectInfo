@@ -3,7 +3,7 @@
 #include "myglwidget.h"
 
 
-// Declarations des constantes
+// Déclarations des constantes
 const unsigned int WIN_WIDTH  = 1600;
 const unsigned int WIN_HEIGHT = 900;
 const float MAX_DIMENSION     = 50.0f;
@@ -11,7 +11,7 @@ const float MAX_DIMENSION     = 50.0f;
 // Constructeur
 MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 {
-    // Reglage de la taille/position
+    // Réglage de la taille/position
     //setFixedSize(WIN_WIDTH, WIN_HEIGHT);
     move(QApplication::desktop()->screen()->rect().center() - rect().center());
 }
@@ -20,7 +20,7 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 // Fonction d'initialisation
 void MyGLWidget::initializeGL()
 {
-    // Reglage de la couleur de fond
+    // Réglage de la couleur de fond
     glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 
     // Activation du zbuffer
@@ -34,10 +34,10 @@ void MyGLWidget::initializeGL()
 // Fonction de redimensionnement
 void MyGLWidget::resizeGL(int width, int height)
 {
-    // Definition du viewport (zone d'affichage)
+    // Définition du viewport (zone d'affichage)
     glViewport(0, 0, width, height);
 
-    // Definition de la matrice de projection
+    // Définition de la matrice de projection
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
@@ -53,9 +53,9 @@ void MyGLWidget::resizeGL(int width, int height)
 // Fonction d'affichage
 void MyGLWidget::paintGL()
 {
-    // Reinitialisation des tampons
+    // Réinitialisation des tampons
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	// Definition de la matrice modelview
+    // Définition de la matrice modelview
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(0.0f, 0.0f, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
