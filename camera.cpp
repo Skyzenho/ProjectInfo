@@ -112,7 +112,7 @@ void Camera::Update(){
     Point vect1(maxLoc1.x-templateRect1->x,maxLoc1.y-templateRect1->y);
     Point vect2(maxLoc2.x-templateRect2->x,maxLoc2.y-templateRect2->y);
 
-    // Draw green rectangle and the translation vector
+    // Draw rectangle and the translation vector
     rectangle(frame2,*workingRect,Scalar( 0, 255, 0),2);
     rectangle(frame2,*workingRect1,Scalar( 255, 0, 0),2);
     rectangle(frame2,*workingRect2,Scalar( 0, 0, 255),2);

@@ -14,10 +14,9 @@ class MyGLWidget : public QGLWidget
 
 public:
 
-    // Constructeur
-    MyGLWidget(QWidget * parent = nullptr);
+    MyGLWidget(QWidget * parent = nullptr); // Constructeur
 
-    void SetJeu(Jeu* JeuPtr);
+    void SetJeu(Jeu* JeuPtr); // Permet de fixer le jeu
 
 protected:
 
@@ -32,7 +31,9 @@ protected:
 
 
 private:
-    Jeu *Jeu_;
+
+    Jeu *Jeu_; // Variable Jeu
 };
 
 #endif // MYGLWIDGET_H
+

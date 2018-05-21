@@ -36,7 +36,7 @@ void Jeu::Display(){
 
 void Jeu::Joue(){
     int count=0;
-    if(Mur_->VerifieBas(Boule_->GetY())) VerifiEtat();
+    if(Mur_->VerifieBas(Boule_->GetY())) VerifieEtat();
     Boule_->SetAngle(Palet_->InteractPalet(Boule_->GetX(),Boule_->GetY(),Boule_->GetAngle())); //Vérifie si la boule touche le palet
     for(Brique * it : v_Brique) Boule_->SetAngle(it->InteractBrique(Boule_->GetX(),Boule_->GetY(),Boule_->GetAngle()));
     Boule_->SetAngle(Mur_->InteractMur(Boule_->GetX(),Boule_->GetY(),Boule_->GetAngle())); //Vérifie si la boule touche le mur
@@ -46,7 +46,7 @@ void Jeu::Joue(){
     if(Score_==v_Brique.size()) NextLvl();
 }
 
-void Jeu::VerifiEtat(){
+void Jeu::VerifieEtat(){
     if(Vie_>0){
         delete Boule_;
         Boule_=new Boule(0,-26.5,(rand() % 120)+30);// Départ aléatoire entre 30 et 150 degrés
