@@ -7,6 +7,8 @@ ConfigWindow::ConfigWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     taille = 2;
+    qDebug()<<"marche";
+
 }
 
 ConfigWindow::~ConfigWindow()
@@ -17,9 +19,7 @@ ConfigWindow::~ConfigWindow()
 
 void ConfigWindow::on_Taillepetit_toggled(bool checked)
 {
-    if(checked){
-        taille = 1;
-    }
+    connect(ui->Taillepetit, SIGNAL(toggled(bool)), this, SLOT(petitpalet()));
 }
 
 void ConfigWindow::on_Taillemoyen_toggled(bool checked)
@@ -34,4 +34,17 @@ void ConfigWindow::on_Taillegrand_toggled(bool checked)
     if(checked){
         taille = 3;
     }
+}
+
+void ConfigWindow::on_LevelButton_clicked()
+{
+    qDebug()<<"marche";
+
+}
+
+void petitpalet(){
+    qDebug()<<"marche";
+    /*if(checked){
+        taille = 1;
+    }*/
 }

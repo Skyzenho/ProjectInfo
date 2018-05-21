@@ -30,8 +30,6 @@ private slots:
 
     void on_Config_clicked();
 
-    void openConfiguration();
-
 
 private:
     Ui::MainWindow *ui;

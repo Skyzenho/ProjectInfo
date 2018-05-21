@@ -94,12 +94,10 @@ void MainWindow::on_Start_clicked()
 
 void MainWindow::on_Config_clicked()
 {
-    QObject::connect(ui->Config, SIGNAL(clicked()), this, SLOT(openConfiguration()));
-}
-
-void MainWindow::openConfiguration()
-{
     m_AnimationTimer.stop();
+    //QObject::connect(ui->Config, SIGNAL(clicked()), this, SLOT(openConfiguration()));
     ConfigWindow cw(this);
     cw.exec();
+    m_AnimationTimer.start();
 }
+

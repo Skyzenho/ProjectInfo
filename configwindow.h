@@ -16,6 +16,7 @@ class ConfigWindow : public QDialog
 public:
     explicit ConfigWindow(QWidget *parent = 0);
     ~ConfigWindow();
+    void petitpalet();
 
 private slots:
     void on_Taillepetit_toggled(bool checked);
@@ -23,6 +24,8 @@ private slots:
     void on_Taillemoyen_toggled(bool checked);
 
     void on_Taillegrand_toggled(bool checked);
+
+    void on_LevelButton_clicked();
 
 private:
    Ui::ConfigWindow *ui;
