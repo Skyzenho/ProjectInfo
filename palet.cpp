@@ -69,7 +69,7 @@ float Palet::InteractPalet(float x,float y,float angle){
 
     if (((y-0.707>=(-29-1))&&(y-0.707<=(-29+1))&&(x-0.707>=posx_-7.0)&&(x-0.707<=posx_+7.0))||((y-1>=(-29+1))&&(y-1<=(-29-1))&&(x>=posx_-7.0)&&(x<=posx_+7.0))||((y-0.707>=(-29-1))&&(y-0.707<=(-29+1))&&(x+0.707>=posx_-7.0)&&(x+0.707<=posx_+7.0))){
         float dist=posx_-x;
-        qDebug()<<x<<y<<angle*180/3.1415<<dist;
+        //qDebug()<<x<<y<<angle*180/3.1415<<dist;
         if(dist>=-7.1 && dist<=7.1){
             if (dist==0) return -angle;
             else return -(2*(-5*dist+90)-angle*180/3.1415)*(3.1415/180);

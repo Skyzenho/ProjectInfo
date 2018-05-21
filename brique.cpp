@@ -6,8 +6,7 @@ Brique::Brique(float x,float y)
     posy_=y;
     Taille_=4.5;
     Hauteur_=1.5;
-    int aleatoire = (rand() % (3 - 1 + 1)) + 1;
-    qDebug()<<aleatoire;
+    int aleatoire = (rand() % 3) + 1;
     if(aleatoire == 1){
         QImage imagetex=QGLWidget::convertToGLFormat(QImage(QString(":/images/Briques.jpg")));
         glGenTextures(1,&Texture_);
