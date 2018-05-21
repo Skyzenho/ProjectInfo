@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include "jeu.h"
 #include "camera.h"
-#include "configwindow.h"
 #include <QTimer>
 #include <QMouseEvent>
 #include <QKeyEvent>
@@ -28,8 +27,9 @@ protected:
 private slots:
     void on_Start_clicked();
 
-    void on_Config_clicked();
 
+
+    void on_Level_clicked();
 
 private:
     Ui::MainWindow *ui;

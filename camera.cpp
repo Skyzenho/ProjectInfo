@@ -12,8 +12,6 @@ Camera::Camera(){
         workingRect1=new Rect(((frameWidth-subImageWidth)/4)*3,frameHeight/2+(frameHeight/2-subImageHeight)/2,subImageWidth,subImageHeight);
         workingRect2=new Rect(((frameWidth-subImageWidth)/4)*2,frameHeight/2+(frameHeight/2-subImageHeight)/2,subImageWidth,subImageHeight);
 
-
-
         templateRect=new Rect((workingRect->width-templateWidth)/2,(workingRect->height-templateHeight)/2,templateWidth,templateHeight);
         templateRect1=new Rect((workingRect1->width-templateWidth)/2,(workingRect1->height-templateHeight)/2,templateWidth,templateHeight);
         templateRect2=new Rect((workingRect2->width-templateWidth)/2,(workingRect2->height-templateHeight)/2,templateWidth,templateHeight);
@@ -21,8 +19,6 @@ Camera::Camera(){
         workingCenter=new Point(workingRect->x+subImageWidth/2,workingRect->y+subImageHeight/2);
         workingCenter1=new Point(workingRect1->x+subImageWidth/2,workingRect1->y+subImageHeight/2);
         workingCenter2=new Point(workingRect2->x+subImageWidth/2,workingRect2->y+subImageHeight/2);
-
-
 
         cap.open(0); // open the default camera
         cout<<"width :"<<cap.get(CV_CAP_PROP_FRAME_WIDTH)<<endl;
@@ -86,22 +82,15 @@ void Camera::Update(){
     // Mirror effect
     cv::flip(frame2,frame2,1);
 
-
-
     // Extract working rect in frame2 and convert to gray
     cv::cvtColor(Mat(frame2,*workingRect),frameRect2,COLOR_BGR2GRAY);
     cv::cvtColor(Mat(frame2,*workingRect1),frameRect4,COLOR_BGR2GRAY);
     cv::cvtColor(Mat(frame2,*workingRect2),frameRect6,COLOR_BGR2GRAY);
 
-
-
-
     // Extract template image in frame1
     Mat templateImage(frameRect1,*templateRect);
     Mat templateImage1(frameRect3,*templateRect1);
     Mat templateImage2(frameRect5,*templateRect2);
-
-
 
     // Do the Matching between the working rect in frame2 and the templateImage in frame1
     matchTemplate( frameRect2, templateImage, resultImage, TM_CCORR_NORMED );
@@ -118,12 +107,10 @@ void Camera::Update(){
     double minVal2; double maxVal2; Point minLoc2; Point maxLoc2;
     minMaxLoc( resultImage2, &minVal2, &maxVal2, &minLoc2, &maxLoc2);
 
-
     // Compute the translation vector between the origin and the matching rect
     Point vect(maxLoc.x-templateRect->x,maxLoc.y-templateRect->y);
     Point vect1(maxLoc1.x-templateRect1->x,maxLoc1.y-templateRect1->y);
     Point vect2(maxLoc2.x-templateRect2->x,maxLoc2.y-templateRect2->y);
-
 
     // Draw green rectangle and the translation vector
     rectangle(frame2,*workingRect,Scalar( 0, 255, 0),2);

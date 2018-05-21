@@ -133,9 +133,9 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="Config">
+         <widget class="QPushButton" name="Level">
           <property name="text">
-           <string>Configuration</string>
+           <string>Augmenter Level</string>
           </property>
          </widget>
         </item>
