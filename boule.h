@@ -4,7 +4,6 @@
 #include <QImage>
 #include <QGLWidget>
 #include <math.h>
-#include <QDebug>
 
 class Boule
 {

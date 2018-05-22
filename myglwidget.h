@@ -5,6 +5,7 @@
 #include "jeu.h"
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QFont>
 
 
 // Classe dédiée à l'affichage d'une scène OpenGL

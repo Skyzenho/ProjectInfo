@@ -7,11 +7,9 @@
 #include <cstdio>
 #include <iostream>
 #include <QImage>
-#include <QDebug>
 
 using namespace cv;
 using namespace std;
-
 
 class Camera
 {

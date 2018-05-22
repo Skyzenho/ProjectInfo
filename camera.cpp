@@ -30,14 +30,12 @@ Camera::Camera(){
             cerr<<"Error openning the default camera"<<endl;
         }
 
-
         // Get frame1
         cap >> frame1;
         // Get frame3
         cap >> frame3;
         // Get frame5
         cap >> frame5;
-
 
         // Mirror effect
         cv::flip(frame1,frame1,1);
@@ -46,14 +44,10 @@ Camera::Camera(){
         // Mirror effect
         cv::flip(frame5,frame5,1);
 
-
         // Extract rect1 and convert to gray
         cv::cvtColor(Mat(frame1,*workingRect),frameRect1,COLOR_BGR2GRAY);
         cv::cvtColor(Mat(frame3,*workingRect1),frameRect3,COLOR_BGR2GRAY);
         cv::cvtColor(Mat(frame5,*workingRect2),frameRect5,COLOR_BGR2GRAY);
-
-
-
 
         // Create the matchTemplate image result
             // to store the matchTemplate result

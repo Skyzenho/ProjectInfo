@@ -78,10 +78,3 @@ float Palet::InteractPalet(float x,float y,float angle){
     }
     return angle;
 }
-
-
-
-
-
-
-

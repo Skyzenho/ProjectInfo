@@ -6,7 +6,6 @@
 #include "palet.h"
 #include "boule.h"
 #include "mur.h"
-#include <QDebug>
 
 class Jeu
 {

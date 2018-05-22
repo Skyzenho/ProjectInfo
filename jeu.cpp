@@ -50,7 +50,7 @@ void Jeu::VerifieEtat(){
     if(Vie_>0){
         delete Boule_;
         Boule_=new Boule(0,-26.5,(rand() % 120)+30);// Départ aléatoire entre 30 et 150 degrés
-        Boule_->SetVitesse(1+(Nivel_-1)*0.5);
+        Boule_->SetVitesse(1+(Nivel_-1)*0.2);
         Vie_-=1;
     }
     else FinPartie=TRUE;

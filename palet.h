@@ -4,7 +4,7 @@
 #include <GL/glu.h>
 #include <QImage>
 #include <QGLWidget>
-#include <QDebug>
+
 class Palet
 {
 public:

@@ -60,7 +60,7 @@ void MyGLWidget::paintGL()
     glLoadIdentity();
     gluLookAt(0.0f, 0.0f, 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
     Jeu_->Display();
-    if(Jeu_->GetEtat())renderText(475,400,"Game Over");
+    if(Jeu_->GetEtat())renderText(450,400,"Game Over",QFont("Helvetica [Cronyx]", 35));
 }
 
 void MyGLWidget::SetJeu(Jeu* JeuPtr){
